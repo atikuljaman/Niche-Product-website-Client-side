@@ -1,0 +1,24 @@
+.feature-container{
+    margin: 120px 0;
+    padding: 0 50px;
+}
+.feature-row{
+    padding-left: 100px;
+}
+.feature-detail{
+    display: flex;
+    align-items: center;
+}
+
+/* USING MEDIA QUERY FOR RESPONSIVE */
+@media only screen and (max-width: 768px) {
+   .feature-detail{
+    flex-direction: column;
+    text-align: center;
+ }
+ 
+    .feature-row{
+    padding-left: 0;
+ }
+
+}

@@ -1,0 +1,42 @@
+.news-letter-container{
+    padding: 0 67px;
+}
+.news-letter-row{
+    background-image: url('../../../images/newsletter-bg.webp');
+    background-position: center;
+    background-size: cover;
+    height: 480px;
+}
+.news-letter-desc{
+    padding: 0 30px;
+    width: 50%;
+}
+.news-letter-desc > h4 > span {
+    color: #FFB639;
+}
+.input-flied{
+    border: 1px solid white;
+    position: relative;
+}
+.submit-btn{
+    position: absolute;
+    width: 170px;
+    background-color: #FFB639;
+    font-weight: 600;
+    top: 0;
+    right: 0;
+}
+
+/* USING MEDIA QUERY FOR RESPONSIVE */
+@media only screen and (max-width: 768px) {
+ .news-letter-container{
+    padding: 0px;
+}
+.news-letter-desc{
+    padding: 20px;
+    width: 100%;
+}
+.submit-btn{
+    width: 120px;
+}
+}

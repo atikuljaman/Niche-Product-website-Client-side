@@ -1,0 +1,61 @@
+.carousel-item-1{
+    background-image: url('../../../images/banner1.webp');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    z-index: -1;
+}
+.carousel-item-2{
+    background-image: url('../../../images/banner2.webp');
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    z-index: -1;
+}
+.banner-desc{
+    height: 100vh;
+}
+.banner-desc > div > h2{
+    font-size: 30px;
+    color: #d8d8d8;
+}
+.banner-desc > div > h1{
+    font-weight: 600;
+    font-size: 72px;
+    color: #d8d8d8;
+}
+.banner-desc > div > button{
+    font-weight: 600;
+    width: 160px;
+    height: 45px;
+    background-color: #d8d8d8;
+}
+
+/* BANNER BOTTOM STYLE */
+.banner-bottom{
+    padding: 0 70px;
+    margin-top: -120px;
+}
+
+/* USING MEDIA QUERY FOR RESPONSIVE */
+@media only screen and (max-width: 768px) {
+    .banner-desc > div > h2{
+    font-size: 20px;
+}
+.banner-desc > div > h1{
+    font-size: 40px;
+}
+.banner-desc > div > button{
+    font-weight: 600;
+    width: 160px;
+    height: 45px;
+    background-color: #d8d8d8;
+}
+
+/* BANNER BOTTOM STYLE */
+.banner-bottom{
+    padding: 0 10px;
+    margin-top: 0px;
+}
+
+}
