@@ -1,0 +1,8 @@
+.product-detail-heading{
+    background-image: url('../../images/bg-img.webp');
+    background-position: center;
+    height: 300px;
+}
+.product-detail-heading > div > h6{
+    color: #FFB639;
+}

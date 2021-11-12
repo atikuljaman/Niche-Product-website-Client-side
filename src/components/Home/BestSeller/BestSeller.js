@@ -42,9 +42,9 @@ const BestSeller = () => {
                                             <p><small>{product?.desc.slice(0, 49)}...</small></p>
                                             <p className="fw-bold">Price: <span className="fw-normal">${product?.price?.toFixed(2)}</span></p>
                                         </Card.Text>
-                                        {/* <NavLink className="text-decoration-none" to={`/productDetail/${product?._id`}>
+                                        <NavLink className="text-decoration-none" to={`/productDetail/${product?._id}`}>
                                             <button className="w-100 py-1 border-0 card-btn">Purchase</button>
-                                        </NavLink> */}
+                                        </NavLink>
                                     </Card.Body>
                                 </Card>
                             </Col>
