@@ -21,9 +21,9 @@ const Header = () => {
                             <NavLink className="text-uppercase nav-link me-4 mt-1" to="/about">About</NavLink>
                             <NavLink className="text-uppercase nav-link me-4 mt-1" to="/blog">Blog</NavLink>
                             <NavLink className="text-uppercase nav-link me-4 mt-1" to="/contact">Contact</NavLink>
-                            <NavLink className="text-uppercase nav-link mt-1" to="/contact">Login</NavLink>
-                            <NavLink className="text-uppercase nav-link mt-1" to="/contact">|</NavLink>
-                            <NavLink className="text-uppercase nav-link me-4 mt-1" to="/contact">Register</NavLink>
+                            <NavLink className="text-uppercase nav-link mt-1" to="/login">Login</NavLink>
+                            <NavLink className="text-uppercase nav-link mt-1" to="/">|</NavLink>
+                            <NavLink className="text-uppercase nav-link me-4 mt-1" to="/register">Register</NavLink>
                             <NavLink className="text-uppercase nav-link me-4" to="/contact"><BsHandbag className="fs-3" /></NavLink>
                         </Nav>
                     </Navbar.Collapse>

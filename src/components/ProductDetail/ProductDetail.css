@@ -6,3 +6,10 @@
 .product-detail-heading > div > h6{
     color: #FFB639;
 }
+.form-container{
+    padding: 100px;
+}
+.order-btn{
+    background-color: #FFB639;
+    font-weight: 600;
+}

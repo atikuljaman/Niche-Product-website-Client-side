@@ -1,0 +1,15 @@
+.register-container{
+    margin: 80px 0;
+}
+.form-container{
+    padding: 50px;
+}
+.form-detail{
+    background-color: whitesmoke;
+    border: 1px solid rgba(128, 128, 128, 0.452);
+    padding: 50px;
+}
+.sign-up-btn{
+    background-color: #FFB639;
+    font-weight: 600;
+}
