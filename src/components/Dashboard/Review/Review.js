@@ -11,21 +11,20 @@ const Review = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        // fetch('http://localhost:5000/orders', {
-        //     method: 'POST',
-        //     headers: { 'content-type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then((result) => {
-        //         if (result.insertedId) {
-        //             alert('Your Review Successfully Added');
-        //             reset();
-        //         }
-        //     })
-
-        console.log(data);
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then((result) => {
+                if (result.insertedId) {
+                    alert('Your Review Successfully Added');
+                    reset();
+                }
+            })
     };
+
     return (
         <div>
             <Container className="p-5">
@@ -45,7 +44,7 @@ const Review = () => {
                             <input className="w-100 mt-3 py-2 px-3" type="number" placeholder="Rating" {...register("rating", { required: true })} />
                             {/* errors will return when field validation fails  */}
                             {errors.rating && <span>This field is required</span>}
-                            <textarea rows="6" cols="50" className="w-100 mt-3 py-2 px-3" placeholder="Review Description" {...register("reviewDesc", { required: true })} />
+                            <textarea maxlength="57" rows="6" cols="50" className="w-100 mt-3 py-2 px-3" placeholder="Review Description" {...register("reviewDesc", { required: true })} />
                             {/* errors will return when field validation fails  */}
                             {errors.reviewDesc && <span>This field is required</span>}
                             <br />

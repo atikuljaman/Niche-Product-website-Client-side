@@ -40,7 +40,7 @@ const BestSeller = () => {
                                         <Card.Title><h6 className="text-capitalize fw-bold">{product?.name}</h6></Card.Title>
                                         <Card.Text>
                                             <p><small>{product?.desc.slice(0, 49)}...</small></p>
-                                            <p className="fw-bold">Price: <span className="fw-normal">${product?.price?.toFixed(2)}</span></p>
+                                            <p className="fw-bold">Price: <span className="fw-normal">${product?.price}</span></p>
                                         </Card.Text>
                                         <NavLink className="text-decoration-none" to={`/productDetail/${product?._id}`}>
                                             <button className="w-100 py-1 border-0 card-btn">Purchase</button>
