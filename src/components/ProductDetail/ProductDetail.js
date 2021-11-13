@@ -6,9 +6,11 @@ import { useForm } from "react-hook-form";
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
 import './ProductDetail.css';
+import useAuth from '../../hooks/useAuth';
 
 const ProductDetail = () => {
     const { id } = useParams();
+    const { user } = useAuth();
     const [product, setProduct] = useState({});
 
     useEffect(() => {
@@ -17,8 +19,23 @@ const ProductDetail = () => {
             .then(data => setProduct(data))
     }, []);
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        data.orderItem = product;
+        data.status = 'Pending';
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then((result) => {
+                if (result.insertedId) {
+                    alert('Order Placed Successfully');
+                    reset();
+                }
+            })
+    };
 
     return (
         <div>
@@ -48,9 +65,9 @@ const ProductDetail = () => {
                     </Col>
                     <Col className="form-container" md={6}>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input className="w-100 mt-3 py-2 px-3" placeholder="Name" {...register("name")} />
+                            <input defaultValue={user?.displayName} className="w-100 mt-3 py-2 px-3" placeholder="Name" {...register("name")} />
                             <br />
-                            <input className="w-100 mt-3 py-2 px-3" placeholder="Email" {...register("email", { required: true })} />
+                            <input defaultValue={user?.email} className="w-100 mt-3 py-2 px-3" placeholder="Email" {...register("email", { required: true })} />
                             {/* errors will return when field validation fails  */}
                             {errors.email && <span>This field is required</span>}
                             <br />

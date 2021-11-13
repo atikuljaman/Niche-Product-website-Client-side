@@ -4,3 +4,9 @@
 .logo{
     width: 80px;
 }
+.logout-btn{
+    background-color: #FFB639;
+    font-weight: 600;
+    width: 110px;
+    border-radius: 7px;
+}

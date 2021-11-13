@@ -3,7 +3,7 @@ import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import loginImg from '../../../images/login.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Login.css';
 
@@ -11,6 +11,9 @@ const Login = () => {
     const { handleLoginUser } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const location = useLocation();
+    const history = useHistory();
 
     const handleEmail = e => {
         setEmail(e.target.value)
@@ -21,7 +24,7 @@ const Login = () => {
 
     const handleForm = e => {
         e.preventDefault();
-        handleLoginUser(email, password);
+        handleLoginUser(email, password, location, history);
     }
 
     return (

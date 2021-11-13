@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initialization from "../firebase/firebase.init";
 
@@ -12,11 +12,13 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
-    const handleRegisterUser = (name, email, password) => {
+    const handleRegisterUser = (name, email, password, location, history) => {
         setLoading(true)
-        createUserWithEmailAndPassword(auth, name, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 setUser(result.user)
+                setUserName(name)
+                history.replace(location?.state?.from || '/')
             })
             .catch((error) => {
                 setError(error.message);
@@ -24,11 +26,12 @@ const useFirebase = () => {
             .finally(() => setLoading(false));
     };
 
-    const handleLoginUser = (name, email, password) => {
+    const handleLoginUser = (email, password, location, history) => {
         setLoading(true)
-        signInWithEmailAndPassword(auth, name, email, password)
+        signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 setUser(result.user)
+                history.replace(location?.state?.from || '/')
             })
             .catch((error) => {
                 setError(error.message);
@@ -50,11 +53,18 @@ const useFirebase = () => {
         return () => unsubscribe
     }, []);
 
+    const setUserName = (name) => {
+        updateProfile(auth.currentUser, {
+            displayName: name
+        }).then(() => { })
 
-    const handleLogout = () => {
+    }
+
+
+    const handleLogout = (location, history) => {
         setLoading(true)
         signOut(auth).then(() => {
-            // Sign-out successful.
+            history.replace(location?.state?.from || '/')
         }).catch((error) => {
             // An error happened.
         })

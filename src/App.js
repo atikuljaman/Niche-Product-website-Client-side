@@ -6,10 +6,13 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+import Dashboard from "./components/Dashboard/Dashboard";
 import Home from "./components/Home/Home/Home";
 import Login from "./components/Login/Login/Login";
 import Register from "./components/Login/Register/Register";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
+import Shop from "./components/Shop/Shop";
 import AuthProvider from "./context/AuthProvider";
 
 function App() {
@@ -24,8 +27,14 @@ function App() {
             <Route exact path="/home">
               <Home />
             </Route>
-            <Route exact path="/productDetail/:id">
+            <Route exact path="/shop">
+              <Shop />
+            </Route>
+            <PrivateRoute exact path="/productDetail/:id">
               <ProductDetail />
+            </PrivateRoute>
+            <Route path="/dashboard">
+              <Dashboard />
             </Route>
             <Route path="/login">
               <Login />

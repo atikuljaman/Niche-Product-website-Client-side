@@ -3,7 +3,7 @@ import Header from '../../Shared/Header/Header';
 import Footer from '../../Shared/Footer/Footer';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import loginImg from '../../../images/login.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Register.css';
 
@@ -12,7 +12,8 @@ const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const location = useLocation();
+    const history = useHistory();
 
 
     const handleName = e => {
@@ -27,7 +28,7 @@ const Register = () => {
 
     const handleForm = e => {
         e.preventDefault();
-        handleRegisterUser(email, password);
+        handleRegisterUser(name, email, password, location, history);
     }
 
     return (

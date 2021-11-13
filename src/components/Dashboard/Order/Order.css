@@ -1,0 +1,18 @@
+.order-product-img{
+    width: 100px;
+}
+.cancel-btn{
+    background-color: rgba(0, 0, 0, 0.158);
+    width: 90px;
+    height: 35px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+.cancel-btn:hover{
+    background-color: red;
+    color: white;
+}
+.order{
+    height: 100vh;
+    overflow-y: scroll;
+}

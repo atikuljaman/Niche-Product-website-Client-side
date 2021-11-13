@@ -1,0 +1,9 @@
+.dashboard-navbar{
+   background-color: #FFB639;
+}
+.offcanvus-container{
+   background-image: url('../../images/dashboard-bg.jpg');
+   background-color: #2B2522;
+   background-blend-mode:screen;
+   height: 110vh;
+}
