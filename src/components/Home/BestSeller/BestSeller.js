@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row, Spinner } from 'react-bootstrap';
 import Rating from 'react-rating';
 import { NavLink } from 'react-router-dom';
 import './BestSeller.css';
 
 const BestSeller = () => {
+    const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        setLoading(true)
+        fetch('https://dry-forest-73103.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
+            .finally(() => setLoading(false))
     }, [])
 
+    if (loading) {
+        return (
+            <div style={{ height: '100vh' }} className="d-flex justify-content-center align-items-center">
+                <Spinner animation="border" variant="warning" />
+            </div>
+        )
+    }
     return (
         <div>
             <div className="best-seller-heading text-center mb-5 px-3">
@@ -33,9 +43,9 @@ const BestSeller = () => {
                                         <Rating
                                             initialRating={product?.rating}
                                             readonly
-                                            emptySymbol="far fa fa-star"
-                                            fullSymbol="fas fa fa-star"
-                                            className="rating-icon mb-2"
+                                            emptySymbol="far fa-star"
+                                            fullSymbol="fas fa-star"
+                                            className="rating-icon"
                                         />
                                         <Card.Title><h6 className="text-capitalize fw-bold">{product?.name}</h6></Card.Title>
                                         <Card.Text>

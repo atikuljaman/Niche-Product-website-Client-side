@@ -6,7 +6,7 @@ import './AddProduct.css';
 const AddProduct = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/products', {
+        fetch('https://dry-forest-73103.herokuapp.com/products', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)

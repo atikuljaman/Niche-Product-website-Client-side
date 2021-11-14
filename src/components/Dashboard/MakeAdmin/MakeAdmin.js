@@ -13,7 +13,7 @@ const MakeAdmin = () => {
         e.preventDefault()
         const user = { email };
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://dry-forest-73103.herokuapp.com/users', {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)

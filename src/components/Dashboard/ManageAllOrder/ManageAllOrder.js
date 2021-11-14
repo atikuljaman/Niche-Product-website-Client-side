@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Table } from 'react-bootstrap';
+import { Container, Row, Spinner, Table } from 'react-bootstrap';
 //import useAuth from '../../../hooks/useAuth';
 import './ManageAllOrder.css'
 
 
 const ManageAllOrder = () => {
-    //const { user } = useAuth();
     const [userOrders, setUserOrders] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/allOrder`)
+        fetch(`https://dry-forest-73103.herokuapp.com/orders/allOrder`)
             .then(res => res.json())
             .then(data => setUserOrders(data))
+            .finally(() => setLoading(false))
     }, [userOrders]);
 
     const handleDeleteOrder = (id) => {
         const proceed = window.confirm('Are you sure you want to delete?');
         if (proceed) {
-            fetch(`http://localhost:5000/orders?id=${id}`, {
+            fetch(`https://dry-forest-73103.herokuapp.com/orders?id=${id}`, {
                 method: 'DELETE'
             })
                 .then(res => {
@@ -30,7 +31,7 @@ const ManageAllOrder = () => {
     const updateOrderStatus = userOrders.find(order => order.status = 'Shipped');
 
     const handleOrderStatus = id => {
-        fetch(`http://localhost:5000/orders?id=${id}`, {
+        fetch(`https://dry-forest-73103.herokuapp.com/orders?id=${id}`, {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updateOrderStatus)
@@ -43,6 +44,14 @@ const ManageAllOrder = () => {
             })
     }
 
+
+    if (loading) {
+        return (
+            <div style={{ height: '100vh' }} className="d-flex justify-content-center align-items-center">
+                <Spinner animation="border" variant="warning" />
+            </div>
+        )
+    }
 
 
     return (

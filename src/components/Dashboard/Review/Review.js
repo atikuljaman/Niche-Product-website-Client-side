@@ -11,7 +11,7 @@ const Review = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://dry-forest-73103.herokuapp.com/reviews', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -44,7 +44,7 @@ const Review = () => {
                             <input className="w-100 mt-3 py-2 px-3" type="number" placeholder="Rating" {...register("rating", { required: true })} />
                             {/* errors will return when field validation fails  */}
                             {errors.rating && <span>This field is required</span>}
-                            <textarea maxlength="57" rows="6" cols="50" className="w-100 mt-3 py-2 px-3" placeholder="Review Description" {...register("reviewDesc", { required: true })} />
+                            <textarea maxlength="332" rows="6" cols="50" className="w-100 mt-3 py-2 px-3" placeholder="Review Description" {...register("reviewDesc", { required: true })} />
                             {/* errors will return when field validation fails  */}
                             {errors.reviewDesc && <span>This field is required</span>}
                             <br />

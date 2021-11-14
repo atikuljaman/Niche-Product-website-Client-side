@@ -9,7 +9,7 @@ const Banner = () => {
     return (
         <div>
             <Carousel>
-                <Carousel.Item className="carousel-item-1" interval={100000}>
+                <Carousel.Item className="carousel-item-1" interval={2000}>
                     <Container>
                         <Row>
                             <Col md={6}>
@@ -24,7 +24,7 @@ const Banner = () => {
                         </Row>
                     </Container>
                 </Carousel.Item>
-                <Carousel.Item className="carousel-item-2" interval={50000}>
+                <Carousel.Item className="carousel-item-2" interval={2000}>
                     <Container>
                         <Row>
                             <Col md={6}>

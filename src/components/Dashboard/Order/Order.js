@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Table } from 'react-bootstrap';
+import { Container, Row, Spinner, Table } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import './Order.css';
 
 const Order = () => {
     const { user } = useAuth();
     const [userOrders, setUserOrders] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+        fetch(`https://dry-forest-73103.herokuapp.com/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setUserOrders(data))
+            .finally(() => setLoading(false))
     }, [userOrders]);
 
     const handleDeleteOrder = (id) => {
         const proceed = true;
         if (proceed) {
             window.confirm('Are you sure you want to delete?')
-            fetch(`http://localhost:5000/orders?id=${id}`, {
+            fetch(`https://dry-forest-73103.herokuapp.com/orders?id=${id}`, {
                 method: 'DELETE'
             })
                 .then(res => {
@@ -25,6 +27,14 @@ const Order = () => {
                 })
         };
 
+    }
+
+    if (loading) {
+        return (
+            <div style={{ height: '100vh' }} className="d-flex justify-content-center align-items-center">
+                <Spinner animation="border" variant="warning" />
+            </div>
+        )
     }
 
     return (

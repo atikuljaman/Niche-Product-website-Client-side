@@ -14,7 +14,7 @@ const ProductDetail = () => {
     const [product, setProduct] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://dry-forest-73103.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
@@ -23,7 +23,7 @@ const ProductDetail = () => {
     const onSubmit = data => {
         data.orderItem = product;
         data.status = 'Pending';
-        fetch('http://localhost:5000/orders', {
+        fetch('https://dry-forest-73103.herokuapp.com/orders', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(data)
@@ -54,9 +54,9 @@ const ProductDetail = () => {
                             <Rating
                                 initialRating={product?.rating}
                                 readonly
-                                emptySymbol="far fa fa-star"
-                                fullSymbol="fas fa fa-star"
-                                className="rating-icon mb-4"
+                                emptySymbol="far fa-star"
+                                fullSymbol="fas fa-star"
+                                className="rating-icon"
                             />
                             <h3>{product?.name}</h3>
                             <h5>Price: <span className="fw-normal">${product?.price}</span></h5>
