@@ -47,7 +47,7 @@ const Footer = () => {
                 </Row>
             </Container>
             <div className="bg-black text-center py-3">
-                <p className="m-0">© Lukas,2021. Made With <BsSuitHeartFill className="text-danger" /> by HasThemes</p>
+                <p className="m-0">© Lukas,2021. Made With <BsSuitHeartFill className="text-danger" /> by Atikul Jaman</p>
             </div>
         </div>
     );

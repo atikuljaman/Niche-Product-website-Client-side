@@ -29,11 +29,12 @@
 @media only screen and (max-width: 768px) {
   .best-seller-heading > p{
     width: 100%;
+    font-size: 14px;
 }
 .card-container{
     padding: 0px;
 }
 .card-row{
-    padding: 0 20px;
+    padding: 20px;
 }
 }

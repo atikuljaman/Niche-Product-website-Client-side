@@ -10,3 +10,10 @@
 .quote-icon{
     color: #FFB639;
 }
+
+/* USING MEDIA QUERY FOR RESPONSIVE */
+@media only screen and (max-width: 768px) {
+  .testimonial > div > h2{
+      font-size: 24px;
+  }
+}

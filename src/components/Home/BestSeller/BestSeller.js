@@ -24,7 +24,7 @@ const BestSeller = () => {
         )
     }
     return (
-        <div>
+        <div className="m-0 p-0">
             <div className="best-seller-heading text-center mb-5 px-3">
                 <h2>BEST SELLER</h2>
                 <p>All best seller product are now available for you
@@ -37,7 +37,7 @@ const BestSeller = () => {
                     {
                         products.map(product => (
                             <Col md={4}>
-                                <Card className="product-card border-0">
+                                <Card className="product-card m-0 border-0">
                                     <Card.Img className="img-fluid" variant="top" src={product?.img} />
                                     <Card.Body>
                                         <Rating

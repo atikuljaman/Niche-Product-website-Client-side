@@ -41,7 +41,7 @@ const Login = () => {
                     <Col className="d-flex align-items-center justify-content-center" md={6}>
                         <img className="img-fluid w-75" src={loginImg} alt="Login_Image" />
                     </Col>
-                    <Col className="form-container m-auto" md={6}>
+                    <Col className="login-form-container" md={6}>
                         <div className="form-detail">
                             <h5>Login</h5>
                             <p className="mb-4"><small>Welcome back please login :)</small></p>

@@ -1,3 +1,13 @@
 .offer{
     margin: 160px 0;
 }
+
+.offer-date > div{
+    margin: 0 20px;
+}
+/* USING MEDIA QUERY FOR RESPONSIVE */
+@media only screen and (max-width: 768px) {
+  .offer-date > div{
+    margin: 0 7px;
+}
+}
