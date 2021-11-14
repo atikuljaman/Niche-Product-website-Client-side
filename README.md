@@ -1,4 +1,4 @@
-# My Website name is Likas.
+# My Website name is Lukas.
 
 ### Live link 
 https://assignment-12-866b5.web.app/
